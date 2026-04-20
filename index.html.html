@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training Roadmap 2569</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&family=Prompt:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Prompt', sans-serif;
+    font-size: 16px;
+    background: #F8F6F1;
+    min-height: 100vh;
+    padding: 48px 40px;
+    color: #1a1a1a;
+  }
+  @media (max-width: 600px) {
+    body { padding: 24px 16px; }
+    .grid { grid-template-columns: 1fr !important; }
+    .track-full ul { grid-template-columns: 1fr !important; }
+    .login-grid { grid-template-columns: 1fr !important; }
+    .title { font-size: 26px !important; }
+  }
+
+  /* ── Header ── */
+  .header {
+    margin-bottom: 36px;
+    padding-left: 20px;
+    border-left: 3px solid #1a1a1a;
+  }
+  .eyebrow {
+    font-family: 'Prompt', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .title {
+    font-family: 'Prompt', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 16px;
+    color: #666;
+    font-weight: 300;
+  }
+
+  /* ── Login Section ── */
+  .login-section {
+    background: #fff;
+    border: 0.5px solid #E0D9CE;
+    border-radius: 14px;
+    padding: 24px 24px 20px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .login-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, #3B5BDB, #087F5B, #E67700, #A61E4D, #5F3DC4);
+  }
+  .login-title {
+    font-family: 'Prompt', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .login-title .icon {
+    width: 20px; height: 20px;
+    background: #EDF2FF;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .login-subtitle {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 18px;
+  }
+  .login-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .login-block-label {
+    font-family: 'Prompt', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 8px;
+  }
+  .email-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .email-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #333;
+    background: #F8F6F1;
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-family: 'Prompt', monospace;
+  }
+  .email-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #3B5BDB;
+    flex-shrink: 0;
+  }
+  .password-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .password-box {
+    background: #F3F0FF;
+    border: 0.5px solid #c5b8f0;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+  .pw-label {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .pw-value {
+    font-family: 'Prompt', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #5F3DC4;
+    letter-spacing: 1px;
+  }
+  .login-note {
+    font-size: 16px;
+    color: #999;
+    line-height: 1.5;
+  }
+  .login-note span {
+    color: #3B5BDB;
+    font-weight: 500;
+  }
+  .login-url-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 8px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  .login-url-btn:hover { background: #333; }
+
+  /* ── Course Grid ── */
+  .section-label {
+    font-family: 'Prompt', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 14px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .track {
+    background: #fff;
+    border: 0.5px solid #E0D9CE;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+  }
+  .track-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Prompt', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .b1  { background: #EDF2FF; color: #3B5BDB; }
+  .b2b { background: #E6FCF5; color: #087F5B; }
+  .b2a { background: #FFF9DB; color: #E67700; }
+  .b3a { background: #FFF0F6; color: #A61E4D; }
+  .b4a { background: #F3F0FF; color: #5F3DC4; }
+  .track-level {
+    font-family: 'Prompt', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+  }
+  .track-position {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+  .divider {
+    width: 24px;
+    height: 1px;
+    background: #E0D9CE;
+    margin-bottom: 12px;
+  }
+  .number-tag {
+    font-family: 'Prompt', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #bbb;
+    position: absolute;
+    top: 12px; right: 16px;
+  }
+  .course-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .course-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.45;
+  }
+  .course-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #C8B89A;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .course-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  .course-link:hover { color: #3B5BDB; text-decoration: underline; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 0.5px solid #E0D9CE;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-note { font-size: 16px; color: #aaa; letter-spacing: 0.5px; }
+  .platform-badge {
+    font-family: 'Prompt', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Access Banner -->
+  <div style="background:#fff; border:0.5px solid #E0D9CE; border-radius:12px; padding:16px 20px; margin-bottom:24px; position:relative; overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#3B5BDB;border-radius:4px 0 0 4px;"></div>
+    <p style="font-family:'Prompt',sans-serif;font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:10px;padding-left:12px;">ช่องทางการเข้าเรียน</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;padding-left:12px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;flex:1;min-width:220px;background:#EDF2FF;border-radius:10px;padding:12px 14px;">
+        <div style="font-size:18px;line-height:1;">🖥️</div>
+        <div>
+          <p style="font-family:'Prompt',sans-serif;font-size:10px;font-weight:600;color:#3B5BDB;margin-bottom:3px;">เว็บไซต์</p>
+          <a href="https://app.thairunggroup.co.th/ELearning/Elearning" target="_blank" style="font-size:11px;color:#3B5BDB;word-break:break-all;text-decoration:underline;">app.thairunggroup.co.th/ELearning/Elearning</a>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:10px;flex:1;min-width:220px;background:#E6FCF5;border-radius:10px;padding:12px 14px;">
+        <div style="font-size:18px;line-height:1;">📱</div>
+        <div>
+          <p style="font-family:'Prompt',sans-serif;font-size:10px;font-weight:600;color:#087F5B;margin-bottom:3px;">Mobile APP</p>
+          <p style="font-size:11px;color:#087F5B;">My Achieved &nbsp;›&nbsp; หมวด <strong>E-Learning</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <p class="eyebrow">ประชาสัมพันธ์ · ปี 2569</p>
+    <h1 class="title">Training Roadmap</h1>
+    <p class="subtitle">แผนการพัฒนาศักยภาพบุคลากร ตามระดับตำแหน่งงาน</p>
+  </div>
+
+  <!-- Login Section -->
+  <div class="login-section">
+    <div class="login-title">
+      <span class="icon">🔐</span>
+      วิธี Log In เข้าเรียน Online
+    </div>
+    <p class="login-subtitle">เข้าสู่ระบบด้วย Username / Password ที่กำหนดให้ด้านล่าง</p>
+
+    <div class="login-grid">
+      <!-- Emails -->
+      <div>
+        <p class="login-block-label">Username (เลือก 1 เมล)</p>
+        <ul class="email-list">
+          <li class="email-item"><span class="email-dot"></span>narinthorn.s@thairunggroup.co.th</li>
+          <li class="email-item"><span class="email-dot"></span>Sujinda.s@thairunggroup.co.th</li>
+          <li class="email-item"><span class="email-dot"></span>Warinphat.s@thairunggroup.co.th</li>
+          <li class="email-item"><span class="email-dot"></span>arunrach.p@thaivp.com</li>
+          <li class="email-item"><span class="email-dot"></span>nicharat.s@thaivp.com</li>
+        </ul>
+      </div>
+
+      <!-- Password + Note -->
+      <div class="password-block">
+        <div class="password-box">
+          <p class="pw-label">Password (ใช้รหัสเดียวกันทุก Username)</p>
+          <p class="pw-value">Conicle@2025</p>
+        </div>
+        <p class="login-note">
+          1. เปิดเว็บ <span>conicle.com</span><br>
+          2. กด <span>Log In</span> → เลือก Username จากรายการ<br>
+          3. กรอก Password แล้วกด <span>เข้าสู่ระบบ</span><br>
+          4. คลิกหลักสูตรตามระดับตำแหน่งของท่าน
+        </p>
+        <a class="login-url-btn" href="https://conicle.com" target="_blank">เข้าสู่ระบบ Conicle ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Section -->
+  <p class="section-label">หลักสูตรตามระดับตำแหน่ง</p>
+  <div class="grid">
+
+    <!-- 1B-1A -->
+    <div class="track">
+      <span class="number-tag">1B–1A</span>
+      <span class="track-badge b1">Level 1</span>
+      <div class="track-level">Staff</div>
+      <div class="track-position">ระดับพนักงาน</div>
+      <div class="divider"></div>
+      <ul class="course-list">
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1389/?is_coniclex=false" target="_blank">เทคนิคกระบวนการแก้ไขปัญหาอย่างมีตรรกะ</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1998/?is_coniclex=false" target="_blank">ทำงานให้สมาร์ทด้วยทักษะการคิดวิเคราะห์</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1213/?is_coniclex=false" target="_blank">ChatGPT & AI for Increasing Productivity</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1016/?is_coniclex=false" target="_blank">สไลด์อัจฉริยะ (Genius Slide Presentation)</a></li>
+      </ul>
+    </div>
+
+    <!-- 2B -->
+    <div class="track">
+      <span class="number-tag">2B</span>
+      <span class="track-badge b2b">Level 2B</span>
+      <div class="track-level">Senior Staff / Supervisor</div>
+      <div class="track-position">ระดับหัวหน้างาน</div>
+      <div class="divider"></div>
+      <ul class="course-list">
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1662/?is_coniclex=false" target="_blank">ทางสู่การเป็นพี่เลี้ยงประสิทธิภาพสูง</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/3418/?is_coniclex=false" target="_blank">Canva Sheet เจาะลึก วิเคราะห์ข้อมูล ด้วย AI</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1951/?is_coniclex=false" target="_blank">ประยุกต์ใช้ Generative AI เพื่อการบริหารโครงการ</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1611/?is_coniclex=false" target="_blank">การคิดอย่างมีวิจารณญาณและการตัดสินใจ</a></li>
+      </ul>
+    </div>
+
+    <!-- 2A-3B -->
+    <div class="track">
+      <span class="number-tag">2A–3B</span>
+      <span class="track-badge b2a">Level 2A–3B</span>
+      <div class="track-level">Division Mgr. / Specialist</div>
+      <div class="track-position">ระดับผู้จัดการ / ผู้เชี่ยวชาญ</div>
+      <div class="divider"></div>
+      <ul class="course-list">
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1928/?is_coniclex=false" target="_blank">การบริหารจัดการการเปลี่ยนแปลงด้วย AI</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1649/?is_coniclex=false" target="_blank">ทักษะการแก้ไขปัญหาอย่างสร้างสรรค์</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1153/?is_coniclex=false" target="_blank">ถอดรหัสความสำเร็จเรื่องการเจรจา</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1849/?is_coniclex=false" target="_blank">คิดอย่างมีกลยุทธ์แบบผู้นำ</a></li>
+      </ul>
+    </div>
+
+    <!-- 3A-4B -->
+    <div class="track">
+      <span class="number-tag">3A–4B</span>
+      <span class="track-badge b3a">Level 3A–4B</span>
+      <div class="track-level">Department Manager</div>
+      <div class="track-position">ระดับผู้จัดการแผนก</div>
+      <div class="divider"></div>
+      <ul class="course-list">
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1611/?is_coniclex=false" target="_blank">Critical Thinking & Decision Making</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1267/?is_coniclex=false" target="_blank">เพิ่มศักยภาพการตัดสินใจให้ยิ่งแม่นยำ</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1859/?is_coniclex=false" target="_blank">ปัญญาประดิษฐ์สำหรับการบริหารเชิงกลยุทธ์</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1796/?is_coniclex=false" target="_blank">ศิลปะการโค้ชและการให้ฟีดแบ็ก</a></li>
+      </ul>
+    </div>
+
+    <!-- 4A-5B full width -->
+    <div class="track track-full" style="grid-column: 1 / -1;">
+      <span class="number-tag">4A–5B</span>
+      <span class="track-badge b4a">Level 4A–5B</span>
+      <div class="track-level">Director / General Manager</div>
+      <div class="track-position">ระดับผู้บริหาร</div>
+      <div class="divider"></div>
+      <ul class="course-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px;">
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1915/?is_coniclex=false" target="_blank">ยกระดับสู่การเป็นองค์กรที่ขับเคลื่อนด้วย AI</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/3885/?is_coniclex=false" target="_blank">Basic Strategic Planning</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1044/?is_coniclex=false" target="_blank">Constructive Feedback with Communication</a></li>
+        <li class="course-item"><span class="course-dot"></span><a class="course-link" href="https://conicle.com/verse/course/1904/?is_coniclex=false" target="_blank">Cost Analysis and Cost Management</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p class="footer-note">คลิกที่ชื่อหลักสูตรเพื่อเข้าสู่บทเรียน · ศึกษาตามระดับตำแหน่งของท่าน</p>
+    <p class="platform-badge">Conicle Platform</p>
+  </div>
+
+</body>
+</html>
